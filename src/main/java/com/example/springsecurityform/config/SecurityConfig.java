@@ -1,5 +1,6 @@
 package com.example.springsecurityform.config;
 
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,5 +20,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.formLogin();
         http.httpBasic();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // {noop} 옵션은 암호화와 관련되어있다. 옵션사용시 저장할 경우 암호화되서 패스워드 저장
+        auth.inMemoryAuthentication()
+                .withUser("donggyu").password("{noop}123").roles("USER")
+                .and()
+                .withUser("admin").password("{noop}123").roles("ADMIN");
     }
 }
