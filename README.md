@@ -75,3 +75,13 @@
 > @WithAnonymousUser <br/>
 > @WithMockUser(username = "donggyu", roles = "USER") 사용해보기 <br/>
 > @WithCustomUser annotation 생성 후 @WithMockUser(username = "donggyu", roles = "USER") 주입
+
+* 스프링 시큐리티 테스트 2부
+> 1.목표 <br/>
+> 로그인 테스트
+> > login_success 테스트 <br/>
+> >> before 로그인 생성 service 저장 후 로그인 성공 <br/>
+> >
+> > login_fail 테스트 <br/>
+> >> 잘못된 로그인 정보로 로그인 시 로그인 실패 테스트 <br/>
+
