@@ -49,8 +49,12 @@
 > >8.inmemory 사용 주석 <br/>
 > >9.AccountController 생성, user를 저장할 수 있도록 생성
 > >>주의사항!!! password 형태는 '{noop}패스워드' 이여야 한다.
+
+* 스프링 시큐리티 커스터마이징: PasswordEncoder
+> 1.목표 <br/>
+> PasswordEncoder bean 생성
+> >1.main 메소드에 PasswordEncoder 등록 <br/>
+> >예전에는 {noop}를 사용했으나 여러 이유로 포맷이 교체되었다고 한다.
 > 
-> 
-> 2.소제목 <br/>
 
 
