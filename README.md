@@ -33,5 +33,24 @@
 > donggyu 유저를 만들고 USER 권한주기, donggyu 유저는 dashboard는 접근하지만 admin은 접근하지 못하는 것 확인
 > >1.AuthenticationManagerBuilder 매개변수로 가진 configure 재정의
 
+* 스프링 시큐리티 커스터마이징: JPA 연동
+> 1.목표 <br/>
+> jpa를 통해 유저를 데이터베이스에서 읽어오도록 변경하자.
+> >1.maven jpa와 h2 추가 <br/>
+> >2.model 패키지 추가 <br/>
+> >3.Account Entity 생성 <br/>id, username, password, role <br/><br/>
+> >4.repository 패키지 추가 <br/>
+> >5.AccountRepository class 생성, findByUsername method 생성<br/>
+> >6.service 패키지 추가 <br/>
+> >7.AccountService class 생성 <br/>
+> >UserDetailsService 상속, loadUserByUsername method 재정의 <br/>
+> > >loadUserByUsername의 역할은 UserDetails 반환
+> >
+> >8.inmemory 사용 주석 <br/>
+> >9.AccountController 생성, user를 저장할 수 있도록 생성
+> >>주의사항!!! password 형태는 '{noop}패스워드' 이여야 한다.
+> 
+> 
+> 2.소제목 <br/>
 
 
