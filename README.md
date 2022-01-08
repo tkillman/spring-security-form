@@ -57,4 +57,21 @@
 > >예전에는 {noop}를 사용했으나 여러 이유로 포맷이 교체되었다고 한다.
 > 
 
+* 스프링 시큐리티 테스트 1부
+> 1.목표 <br/>
+> index_anonymous 테스트
+> > 유저가 없을 때 index 접근하였을 때 status ok인지 확인
+>
+> index_donggyu 테스트
+> > donggyu 유저가 index 접근하였을 때 status ok인지 확인
+>
+> admin_donggyu 테스트
+> > donggyu 유저가 admin 접근하였을 때 status forbidden 확인
+> 
+> admin_admin 테스트
+> > admin 유저가 admin 접근하였을 때 status ok 인지 확인
 
+> 2.목표 <br/>
+> @WithAnonymousUser <br/>
+> @WithMockUser(username = "donggyu", roles = "USER") 사용해보기 <br/>
+> @WithCustomUser annotation 생성 후 @WithMockUser(username = "donggyu", roles = "USER") 주입
