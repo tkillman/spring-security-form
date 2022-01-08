@@ -113,7 +113,7 @@ class AccountControllerTest {
                 .andExpect(unauthenticated());
     }
 
-    // git test
+    // resolve
     private Account createUser(String username, String password) {
         Account account = new Account();
         account.setUsername(username);
