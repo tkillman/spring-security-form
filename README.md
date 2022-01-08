@@ -15,5 +15,11 @@
 > 6.로그인 해보기
 > >id : user, password: 로그 확인
 
-
-
+* 스프링 시큐리티 설정하기
+> 1.목표 : index, info는 로그인 없이, dashboard는 로그인 사용자만 로그인 하지 않았다면 로그인 페이지로 이동되도록, admin은 ADMIN 권한자만 페이지 갈 수 있도록 설정 <br/>
+>> 1.config package 생성<br/>
+>> 2.SecurityConfig class 생성<br/>
+>> 3.WebSecurityConfigureAdapter 상속받기, @EnableWebSecurity 설정 <br/>
+>> 4.configure override 재정의
+> 
+> 2.소제목 <br/>
