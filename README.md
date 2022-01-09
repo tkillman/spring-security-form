@@ -155,3 +155,12 @@
 > 회원가입요청 시 csrf 없는 요청 실패 테스트 작성
 > 회원가입요청 시 csrf 포함 요청 성공 테스트 작성
 
+* 로그아웃 처리 필터: LogoutFilter
+> /logout은 DefaultLogoutPageGeneratingFilter가 페이지를 만들어줌. <br/>
+> logout 화면에서 버튼을 누른 경우 post로 요청이 날아가고 logouthandler가 실행
+> , 다 성공하면 logoutSuccessHandler가 동작하므로 
+> 여러 logouthandler를 등록할 수 있다.<br/> 
+
+> 1.목표
+> logout을 커스터마이징 해보기
+> configure에 설정

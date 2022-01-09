@@ -1,13 +1,23 @@
 package com.example.springsecurityform.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@Slf4j
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -34,6 +44,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // 해당 application에서 만들어진 하위 thread에도 principal 모두 공유시킬 수 있도록 함.
         SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+
+        // custom logout 설정
+//        http.logout()
+//                .logoutUrl("/logout")
+//                .logoutSuccessUrl("/성공시 url")
+//                .deleteCookies("")
+//                .addLogoutHandler((request, response, authentication) -> log.debug("logout"))
+//                .logoutSuccessHandler((request, response, authentication) -> log.debug("logout Success"));
     }
 
 //    @Override
