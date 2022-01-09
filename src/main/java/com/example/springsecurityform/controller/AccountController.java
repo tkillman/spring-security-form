@@ -23,16 +23,4 @@ public class AccountController {
 
         return accountService.createNew(account);
     }
-
-    @GetMapping("/async-handler")
-    @ResponseBody
-    public Callable<String> asyncHandler() {
-
-        SecurityLogger.log("MVC");
-
-        return () -> {
-            SecurityLogger.log("Callable");
-            return "Asnyc Handler";
-        };
-    }
 }

@@ -114,4 +114,18 @@
 > >>
 > >> 3.Controller에서 async-handler 요청을 받아서 Callbable<String> 반환하기(log 메소드로 mvc내에서와 callable 내에서 다름을 확인)
 > 
+
+* 스프링 시큐리티와 @Async
+> 1.목표 <br/>
+> async 한 서비스에서의 Principal 정보 확인하기 (principal이 공유되지 않음) <br/>
+> > 1.AccountSerivce에 ayncService 만들기 (@Async) <br/>
+> > 2.@Async를 사용하기 위해 SpringSecurityFormApplication에 @EnableAsync 설정 <br/>
+> > 3.Controller /async-service 처리하고 service 앞,뒤, 안에 로그 찍기
+>
+> 2.목표 <br/>
+> 위의 공유되지 않은 pricipal 정보를 공유시킬 수 있도록 설정 변경해보기. <br/>
+> configure에서 SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+> 
+> ![로그파일](./doc/로그파일.JPG)
+> 
 > 

@@ -1,8 +1,10 @@
 package com.example.springsecurityform.service;
 
+import com.example.springsecurityform.log.SecurityLogger;
 import com.example.springsecurityform.model.Account;
 import com.example.springsecurityform.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -39,4 +41,6 @@ public class AccountService implements UserDetailsService {
         account.encodePassword(passwordEncoder);
         return accountRepository.save(account);
     }
+
+
 }

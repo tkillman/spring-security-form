@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @Slf4j
 public class SecurityLogger {
@@ -20,6 +21,9 @@ public class SecurityLogger {
         Authentication authentication = securityContext.getAuthentication();
         Object principal = authentication.getPrincipal();
 
-        log.info(">>>>> principal {}", principal.toString());
+        String principalToString = Optional.ofNullable(principal)
+                                    .map(Object::toString)
+                                    .orElse("principal is null");
+        log.info(">>>>> principal {}", principalToString);
     }
 }
