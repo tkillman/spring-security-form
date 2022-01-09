@@ -241,3 +241,8 @@
 > 테스트는 로그인 후 jsessionId cookie를 지우고 다시 브라우저 재 실행시
 > 로그인이 풀리지 않고 jsessionId가 생성되는것을 보면 된다.
 > ![로그인유지](./doc/로그인유지.JPG)
+
+* 커스텀 필터 추가하기
+> WebAsyncManagerIntegrationFilter 앞에 시간을 찍는 필터를 추가해보자. <br/>
+> > 1.ㅇㄹ <br/>
+> 
