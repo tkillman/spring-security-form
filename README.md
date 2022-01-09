@@ -170,4 +170,7 @@
 > AuthenticationManager, Authentication
 > 로그인 로직이 AuthenticationManager 에 등록되어 맞다면 Authentication를 SecurityContext에 담는다.
 > 
+* 로그인/로그아웃 폼 페이지 생성해주는 필터: DefaultLogin/LogoutPageGeneratingFilter
+> http.formLogin() 다음에 필터 체인 <br/>
+> 로그인을 등록하면 로그아웃 필터도 같이 사라진다.
 > 
