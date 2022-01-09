@@ -242,8 +242,8 @@
 > 로그인이 풀리지 않고 jsessionId가 생성되는것을 보면 된다.
 > ![로그인유지](./doc/로그인유지.JPG)
 
-* 커스텀 필터 추가하기
-> WebAsyncManagerIntegrationFilter 앞에 시간을 찍는 필터를 추가해보자. <br/>
+> * 커스텀 필터 추가하기
+    > WebAsyncManagerIntegrationFilter 앞에 시간을 찍는 필터를 추가해보자. <br/>
 > > 1.LoggingFilter class 생성, GenericFilterBean 상속 <br/>
 > > 2.doFilter 작성
 > > 3.configure 에서 addFilter 사용.
