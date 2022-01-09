@@ -181,3 +181,7 @@
 * Basic 인증 처리 필터: BasicAuthenticationFilter
 > 1.base64기반 기본인증 <br/>
 > 2.보안에 취약하기 때문에 base64사용 <br/>
+
+* 요청 캐시 필터: RequestCacheAwareFilter
+> 1.로그인 하지 않은 상태로 /dashboard 요청시 wrappedSavedRequest에 /dashboard 요청을 넣어놓고 /login이 성공 했을 때
+> 다시 /dashboard로 보내준다. <br/>
