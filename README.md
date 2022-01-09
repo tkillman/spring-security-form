@@ -177,9 +177,3 @@
 * 로그인/로그아웃 폼 커스터마이징
 > 1.로그인,로그아웃 페이지 커스터마이징 <br/>
 >>1.configure 재정의, controller로 page 요청 처리
-
-* Basic 인증 처리 필터: BasicAuthenticationFilter
-> 1.base64기반 기본인증 <br/>
-> 2.보안에 취약하기 때문에 base64사용 <br/>
-> 
-> 
