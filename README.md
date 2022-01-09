@@ -133,5 +133,9 @@
 > 만약 추가적인 filter를 등록할 것이라면 SecurityContextPersistenceFilter 우선순위 뒤에 와야 한다.
 > 그래야 영속적인 유지가 가능하다.
 > 기본적인 구현체는 HttpSessionSecurityContextRepository이다.
+
+* 시큐리티 관련 헤더 추가하는 필터: HeaderWriterFilter
+> 1.헤더에 대한 필터를 적용할 수 있게 해 준다. (예 : https만 허용) <br/>
+> 2.나중에 필요한 상황이 오면 강의를 한 번 더 보도록 하자.
 > 
 > 
