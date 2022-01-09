@@ -173,4 +173,7 @@
 * 로그인/로그아웃 폼 페이지 생성해주는 필터: DefaultLogin/LogoutPageGeneratingFilter
 > http.formLogin() 다음에 필터 체인 <br/>
 > 로그인을 등록하면 로그아웃 필터도 같이 사라진다.
-> 
+
+* 로그인/로그아웃 폼 커스터마이징
+> 1.로그인,로그아웃 페이지 커스터마이징 <br/>
+>>1.configure 재정의, controller로 page 요청 처리

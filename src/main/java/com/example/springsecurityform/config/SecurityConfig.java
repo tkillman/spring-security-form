@@ -31,15 +31,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         // 해당 3개는 .and()로 연결 할수도 있다.
+        String loginPage = "/login";
+
         http.authorizeHttpRequests()
-                .mvcMatchers("/", "/info", "/account/**", "/signup").permitAll()
+                .mvcMatchers("/", "/info", "/account/**", "/signup", loginPage).permitAll()
                 .mvcMatchers("/admin").hasRole("ADMIN")
                 // 해당 내용은 좋지않다. ignore에 대해서 filter 로직을 수행하기 때문이다.
                 // ignore 할거면 WebSecurity 매개변수로 가지는 configure에 설정하자.
                 //.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .anyRequest().authenticated();
 
-        http.formLogin();
+        // loginPage 설정하면 DefaultLogin/LogoutPageGeneratingFilter(default 화면을 만들어주던 필터) 가 빠지게 된다.
+        http.formLogin().loginPage(loginPage);
+        http.logout().logoutUrl("/logout").logoutSuccessUrl("/");
+
         http.httpBasic();
 
         // 해당 application에서 만들어진 하위 thread에도 principal 모두 공유시킬 수 있도록 함.
