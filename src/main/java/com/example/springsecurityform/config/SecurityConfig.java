@@ -1,6 +1,8 @@
 package com.example.springsecurityform.config;
 
+import com.example.springsecurityform.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -25,6 +27,9 @@ import java.util.Optional;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    AccountService accountService;
+
     @Override
     public void configure(WebSecurity web) {
         // web.ignoring().mvcMatchers("/favicon.ico");
@@ -33,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
 
         // 해당 3개는 .and()로 연결 할수도 있다.
         String loginPage = "/login";
@@ -77,12 +83,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             response.sendRedirect("/access-denied");
         });
 
-
         // 로그인 기억
         // http.authorizeRequests().anyRequest().rememberMe();
 
         // 로그인 기억 무시
         // http.authorizeRequests().anyRequest().fullyAuthenticated();
+
+        // 로그인 기억하기
+        http.rememberMe()
+                .userDetailsService(accountService)
+                .key("remember-me-sample");
 
         // custom logout 설정
 //        http.logout()

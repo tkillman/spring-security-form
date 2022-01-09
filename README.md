@@ -230,3 +230,14 @@
 * 인가 처리 필터: FilterSecurityInterceptor
 > 1.rememberMe, fullyAuthenticated <br/>
 > rememberMe 로그인 기억하기, fullyAuthenticated 로그인 기억 무시
+
+* 토큰 기반 인증 필터 : RememberMeAuthenticationFilter
+> 목표 <br/>
+> 로그인 기억하기 기능 만들기 <br/>
+> > 1.configure에 http.rememberMe() 설정 <br/>
+> rememberMe를 설정하게 되면 RememberMeAuthenticationFilter가 추가적으로
+> 등록되게 되고 cookie값으로 사용자에게 하나 더 내려가게 된다.
+> jssessionId를 지우더라도 다시 cookie 값에 의해 jsessionId가 만들어지므로
+> 테스트는 로그인 후 jsessionId cookie를 지우고 다시 브라우저 재 실행시
+> 로그인이 풀리지 않고 jsessionId가 생성되는것을 보면 된다.
+> ![로그인유지](./doc/로그인유지.JPG)
