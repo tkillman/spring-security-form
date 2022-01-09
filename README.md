@@ -99,6 +99,19 @@
 > 1.목표 <br/>
 > static 한 리소스 요청에 대해 ignore 설정 (예 : /favicon.io) <br/>
 > > WebSecurity web을 매개변수로 가지는 configure 메소드 재정의
-> 
+
+* 스프링 시큐리티 ignoring() 2부
+> 팁 : static 한 리소스 요청에 대해 ignore에 설정하지 않고 authorizeHttpRequests에 
+> permitAll로 설정하는건 좋지 못하다. 왜냐하면 모두 인증을 통과하기는 하지만 filter 로직을 수행하기 때문이다. <br/>
+> 팁 : 왠만하면 동적 리소스는 permitAll()에 거는게 좋다.
+
+* Async 웹 MVC를 지원하는 필터: WebAsyncManagerIntegrationFilter
+> 1.목표 <br/>
+>> async 한 상태에 대해서도 SecurityContext가 공유되고 있음을 확인하기
+> >> 1.log 패키지 생성, SecurityLogger class 생성
+> >>
+> >> 2.SecurityLogger log 메소드 생성 (매개변수 message, thread 이름 찍기, principal 정보 찍기)
+> >>
+> >> 3.Controller에서 async-handler 요청을 받아서 Callbable<String> 반환하기(log 메소드로 mvc내에서와 callable 내에서 다름을 확인)
 > 
 > 
