@@ -19,7 +19,7 @@ public class LoggingFilter extends GenericFilterBean {
         StopWatch stopWatch = new StopWatch();
 
         stopWatch.start(((HttpServletRequest)servletRequest).getRequestURI());
-        // 이걸 해줘야 다음 filter들이 동작한다.
+        // 이걸 해줘야 다음 filter 들이 동작한다.
         filterChain.doFilter(servletRequest,servletResponse);
 
         stopWatch.stop();

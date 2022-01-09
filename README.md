@@ -244,5 +244,6 @@
 
 * 커스텀 필터 추가하기
 > WebAsyncManagerIntegrationFilter 앞에 시간을 찍는 필터를 추가해보자. <br/>
-> > 1.ㅇㄹ <br/>
-> 
+> > 1.LoggingFilter class 생성, GenericFilterBean 상속 <br/>
+> > 2.doFilter 작성
+> > 3.configure 에서 addFilter 사용.
