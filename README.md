@@ -164,3 +164,10 @@
 > 1.목표
 > logout을 커스터마이징 해보기
 > configure에 설정
+
+* 폼 인증 처리 필터: UsernamePasswordAuthenticationFilter
+> 1.복습하기 <br/>
+> AuthenticationManager, Authentication
+> 로그인 로직이 AuthenticationManager 에 등록되어 맞다면 Authentication를 SecurityContext에 담는다.
+> 
+> 
