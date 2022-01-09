@@ -2,6 +2,7 @@ package com.example.springsecurityform.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
@@ -16,6 +18,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.Principal;
+import java.util.Optional;
 
 @Slf4j
 @EnableWebSecurity
@@ -58,6 +62,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .changeSessionId()
                 .maximumSessions(1)
                 .maxSessionsPreventsLogin(false); // default false
+
+        // access denied 페이지 변경
+        // http.exceptionHandling().accessDeniedPage("/access-denied");
+        http.exceptionHandling().accessDeniedHandler((request, response, accessDeniedException) -> {
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+            log.error(Optional.ofNullable(principal)
+                    .orElse("anonymous")
+                    + " is denied access " + request.getRequestURI());
+            response.sendRedirect("/access-denied");
+        });
 
         // custom logout 설정
 //        http.logout()

@@ -213,4 +213,17 @@
 > 만약 서버가 여러 대라면 spring session을 공부 <br/>
 
 * 인증/인가 예외 처리 필터: ExceptionTranslationFilter
-> 1.
+> ExceptionTranslationFilter -> FilterSecurityInterceptor(AccessDecisionManager, AffirmativeBased) <br/>
+> <br/>(인증)AuthenticationException -> AuthenticationEntryPoint
+> <br/>(인가)AccessDeniedException-> AccessDenidedHandler로 처리
+
+> FilterSecurityInterceptor 다음에 ExceptionTranslationFilter가 와야 한다. FilterSecurityInterceptor는 두가지 예외를 발생시킨다.
+> <br/>인증(Authentication)과 인가(Access) 
+> <br/>인증이 실패하는 경우 AuthenticationEntryPoint가 처리
+> <br/>인가가 실패하는 경우 AccessDeniedHandler 처리 <br/>
+> 
+> 목표 <br/>
+> AccessDenied에 대한 페이지를 재설정 해보자. (로그도 남기는 코드를 작성해보자)<br/>
+>![인가예외처리](./doc/인가예외처리.JPG)
+> 
+>
