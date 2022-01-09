@@ -226,4 +226,7 @@
 > AccessDenied에 대한 페이지를 재설정 해보자. (로그도 남기는 코드를 작성해보자)<br/>
 >![인가예외처리](./doc/인가예외처리.JPG)
 > 
->
+
+* 인가 처리 필터: FilterSecurityInterceptor
+> 1.rememberMe, fullyAuthenticated <br/>
+> rememberMe 로그인 기억하기, fullyAuthenticated 로그인 기억 무시

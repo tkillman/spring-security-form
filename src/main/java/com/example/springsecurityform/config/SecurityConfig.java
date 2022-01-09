@@ -40,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeHttpRequests()
                 .mvcMatchers("/", "/info", "/account/**", "/signup", loginPage).permitAll()
                 .mvcMatchers("/admin").hasRole("ADMIN")
+
+                // hasAnyAuthority은 hasRole과 기능이 같지만 spring security규칙에 의해 role 명칭은 prefix ROLE_를 붙여줘야 한다.
+                // .mvcMatchers("/user").hasAnyAuthority("ROLE_USER")
                 // 해당 내용은 좋지않다. ignore에 대해서 filter 로직을 수행하기 때문이다.
                 // ignore 할거면 WebSecurity 매개변수로 가지는 configure에 설정하자.
                 //.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
@@ -73,6 +76,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     + " is denied access " + request.getRequestURI());
             response.sendRedirect("/access-denied");
         });
+
+
+        // 로그인 기억
+        // http.authorizeRequests().anyRequest().rememberMe();
+
+        // 로그인 기억 무시
+        // http.authorizeRequests().anyRequest().fullyAuthenticated();
 
         // custom logout 설정
 //        http.logout()
