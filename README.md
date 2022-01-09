@@ -125,7 +125,13 @@
 > 2.목표 <br/>
 > 위의 공유되지 않은 pricipal 정보를 공유시킬 수 있도록 설정 변경해보기. <br/>
 > configure에서 SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
-> 
+>
 > ![로그파일](./doc/로그파일.JPG)
+
+* SecurityContext 영속화 필터: SecurityContextPersistenceFilter
+> 기능 : SecurityContext를 유지하게 해주는 필터, login 한 뒤 다시 /dashboard를 요청하면 로그인하지 않아도 된다.
+> 만약 추가적인 filter를 등록할 것이라면 SecurityContextPersistenceFilter 우선순위 뒤에 와야 한다.
+> 그래야 영속적인 유지가 가능하다.
+> 기본적인 구현체는 HttpSessionSecurityContextRepository이다.
 > 
 > 
