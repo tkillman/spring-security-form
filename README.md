@@ -85,3 +85,20 @@
 > > login_fail 테스트 <br/>
 > >> 잘못된 로그인 정보로 로그인 시 로그인 실패 테스트 <br/>
 
+## 스프링 시큐리티: 아키텍처
+* SecurityContextHolder와 Authentication
+> 1.소제목 <br/>
+> 2.소제목 <br/>
+
+* AuthenticationManager와 Authentication
+> 1.소제목 <br/>
+> 2.소제목 <br/>
+
+## 웹 애플리케이션 시큐리티
+* 스프링 시큐리티 ignoring() 1부
+> 1.목표 <br/>
+> static 한 리소스 요청에 대해 ignore 설정 (예 : /favicon.io) <br/>
+> > WebSecurity web을 매개변수로 가지는 configure 메소드 재정의
+> 
+> 
+> 
