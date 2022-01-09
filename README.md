@@ -185,3 +185,32 @@
 * 요청 캐시 필터: RequestCacheAwareFilter
 > 1.로그인 하지 않은 상태로 /dashboard 요청시 wrappedSavedRequest에 /dashboard 요청을 넣어놓고 /login이 성공 했을 때
 > 다시 /dashboard로 보내준다. <br/>
+ 
+* 시큐리티 관련 서블릿 스팩 구현 필터: SecurityContextHolderAwareRequestFilter
+> 1.소제목 <br/>
+
+* 익명 인증 필터: AnonymousAuthenticationFilter
+> 1.anonymous 를 커스터마이징 할 때 쓴다. 거의 쓸일이 없다고 한다. <br/>
+
+* 세션 관리 필터: SessionManagementFilter
+> 1.세션 변조 방지 전략 <br/>
+> migrateSession(서블릿 3.0 이하) <br/>
+> changeSessionId(서블릿 3.1 이상) <br/>
+> 
+> 2.유효하지 않은 세션 리다이렉트 url <br/>
+> invalidSessionUrl  <br/>
+> 
+> 3.동시성 제어 <br/>
+> maximumSessions <br/>
+> 브라우저를 바꿔서 maximumSessions 테스트해보기 <br/>
+> ![기존로그인세션만료](./doc/기존로그인세션만료.JPG)
+> 
+> 4.세션생성전략 <br/>
+> IF_REQUIRED <br/>
+> NEVER <br/>
+> STATELESS <br/>
+> ALWAYS <br/>
+> 만약 서버가 여러 대라면 spring session을 공부 <br/>
+
+* 인증/인가 예외 처리 필터: ExceptionTranslationFilter
+> 1.

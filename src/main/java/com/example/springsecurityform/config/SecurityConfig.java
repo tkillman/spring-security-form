@@ -50,6 +50,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 해당 application에서 만들어진 하위 thread에도 principal 모두 공유시킬 수 있도록 함.
         SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
 
+        // Session 전략
+        // maximumSessions 1개
+        // maxSessionsPreventsLogin true 로그인 사용자가 있으면 로그인 불가, false 로그인 사용자 세션 만료
+        http.sessionManagement()
+                .sessionFixation()
+                .changeSessionId()
+                .maximumSessions(1)
+                .maxSessionsPreventsLogin(false); // default false
+
         // custom logout 설정
 //        http.logout()
 //                .logoutUrl("/logout")
